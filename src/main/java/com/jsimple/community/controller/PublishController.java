@@ -10,6 +10,7 @@ import com.jsimple.community.exception.CustomizeErrorCode;
 import com.jsimple.community.exception.CustomizeException;
 import com.jsimple.community.mapper.QuestionMapper;
 import com.jsimple.community.model.Question;
+import com.jsimple.community.model.User;
 import com.jsimple.community.service.QuestionService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,8 @@ public class PublishController {
 
     @Autowired
     private QuestionService questionService;
+    @Autowired
+    private HttpServletRequest request;
 
 
     @UserLoginToken

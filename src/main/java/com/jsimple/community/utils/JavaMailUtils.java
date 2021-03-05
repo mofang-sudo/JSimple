@@ -94,6 +94,7 @@ public class JavaMailUtils {
         props.setProperty("mail.smtp.socketFactory.fallback", "false");
         props.setProperty("mail.smtp.socketFactory.port", smtpPort);
         */
+        // props.setProperty("mail.smtp.timeout", "200000");
         final String smtpPort = "465";
         props.setProperty("mail.smtp.port", smtpPort);
         props.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");

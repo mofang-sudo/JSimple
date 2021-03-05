@@ -74,42 +74,6 @@ public class SessionInterceptor implements HandlerInterceptor {
                              //return true;
                         }
                     }
-                    //检查有没有需要用户权限的注解
-                   /* if (method.isAnnotationPresent(UserLoginToken.class)) {
-                        UserLoginToken userLoginToken = method.getAnnotation(UserLoginToken.class);
-                        if (userLoginToken.required()) {
-                            // 执行认证
-                            if (token == null||resultDTO.getCode()!=200) {
-                                response.setStatus(401);
-                                throw new CustomizeException(CustomizeErrorCode.NO_LOGIN);
-                                //return false;
-                            }*/
-                            // 获取 token 中的 user id
-               /* String userId;
-                try {
-                    userId = JWT.decode(token).getAudience().get(0);
-                } catch (JWTDecodeException j) {
-                    throw new RuntimeException("401-1");
-                }
-                User user = userService.findUserById(userId);
-                if (user == null) {
-                    throw new RuntimeException("用户不存在，请重新登录");
-                }*/
-                            // 验证 token
-              /*  JWTVerifier jwtVerifier = JWT.require(Algorithm.HMAC256(user.getPassword())).withIssuer("NiterUser").build();
-                try {
-                    DecodedJWT verify = jwtVerifier.verify(token);
-                    Map<String, Claim> map=verify.getClaims();
-                    Map<String, String> resultMap = new HashMap<>(map.size());
-                    map.forEach((k, v) -> resultMap.put(k, v.asString()));
-                    System.out.println("resultMap"+JSON.toJSONString(resultMap));
-
-                } catch (JWTVerificationException e) {
-                    throw new RuntimeException("401-2");
-                }*/
-                          /*  return true;
-                        }
-                    }*/
                     break;
                 }
             }
@@ -121,9 +85,6 @@ public class SessionInterceptor implements HandlerInterceptor {
             if (userLoginToken.required()) {
                 // 执行认证
                 if ((!hashToken)||resultDTO.getCode()!=200) {
-                    //response.setStatus(401);
-                   // new CustomizeException(CustomizeErrorCode.NO_LOGIN);
-                   // return false;
                     throw new CustomizeException(CustomizeErrorCode.NO_LOGIN);
                 }
             }
